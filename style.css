@@ -69,3 +69,20 @@ footer p{
     size: 10px;
     color: #424549;
 }
+.menu a{
+    color: gray;
+    font-weight: 700;
+    padding: 10px 20px;
+    text-decoration: none;
+    
+    
+}
+.menu a:hover{
+    color: #3085e6;
+}
+.menu{
+    text-align: right;
+}
+#exp{
+    margin-left: 20px;
+}
