@@ -11,7 +11,7 @@ Protein Folding Analysis using Neural Networks: A deep learning project analyzin
 Suicidal Thought Detection using ML & DL: An application of machine learning and deep learning models to detect suicidal ideation from social media data, contributing to mental health research.
 
 Technologies Used
-Languages: Python, R, SQL
+Languages: Python, R, SQL, ML, DL
 
 Libraries & Frameworks: TensorFlow, PyTorch, Pandas, Scikit-learn
 
