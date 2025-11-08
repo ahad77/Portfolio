@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahad | Developer & AI Engineer Portfolio</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Font (Inter) & Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            900: '#164e63',
+                        },
+                        slate: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        /* Typing cursor effect */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background-color: #22d3ee;
+            animation: blink 1s infinite;
+            margin-left: 4px;
+            transform: translateY(4px);
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        
+        /* Custom timeline line */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 5.5px;
+            top: 28px;
+            bottom: 0;
+            width: 3px;
+            background-color: #1e293b; /* slate-800 */
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-900 text-slate-200 font-sans">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <a href="#" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">
+                    Ahad Ul Islam Sakib
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex md:space-x-6">
+                    <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">About</a>
+                    <a href="#services" class="px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">Services</a>
+                    <a href="#projects" class="px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">Projects</a>
+                    <a href="#contact" class="px-4 py-2 rounded-md text-sm font-medium text-white bg-cyan-500 hover:bg-cyan-600 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-200 hover:text-cyan-400 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">About</a>
+            <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">Services</a>
+            <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">Projects</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-cyan-500 hover:bg-cyan-600 transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen bg-slate-950">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-32 pb-24">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <span class="block text-cyan-400 text-lg font-medium mb-2">Hello, my name is</span>
+                        <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+                            Ahad Ul Islam Sakib.
+                        </h1>
+                        <div class="min-h-[5rem] md:min-h-[6rem]">
+                             <h2 class="text-2xl md:text-3xl font-medium text-slate-300">
+                                I <span id="typing-text" class="text-cyan-400 font-semibold"></span><span class="typing-cursor"></span>
+                            </h2>
+                        </div>
+                       
+                        <p class="text-lg text-slate-300 max-w-xl mt-6 mb-10">
+                            I'm a Computer Science graduate passionate about the full lifecycle of software. I combine development, AI, and testing to build things *right*.
+                        </p>
+                        <div class="flex items-center space-x-6">
+                            <a href="#contact" class="px-6 py-3 rounded-md text-lg font-medium text-white bg-cyan-500 hover:bg-cyan-600 transition-colors shadow-lg">
+                                Get In Touch
+                            </a>
+                            <div class="flex space-x-6">
+                                <a href="https://www.linkedin.com/in/ahad-ul-islam-sakib-548704188/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" title="LinkedIn">
+                                    <i data-lucide="linkedin" class="w-7 h-7"></i>
+                                </a>
+                                <a href="https://github.com/ahad77" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" title="GitHub">
+                                    <i data-lucide="github" class="w-7 h-7"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Placeholder for a graphic or photo -->
+                    <div class="hidden md:block bg-slate-800 rounded-lg p-8 border border-slate-700">
+                        <i data-lucide="layers-3" class="w-24 h-24 text-cyan-500 mx-auto mb-6"></i>
+                        <p class="text-center text-xl font-semibold text-white mb-2">My Dual Approach</p>
+                        <p class="text-center text-slate-300">"I don't just build the code, I ensure the quality. This portfolio showcases my projects in development, AI, and testing."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-24 bg-slate-900">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="md:col-span-2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">About Me</h2>
+                        <div class="w-24 h-1 bg-cyan-400 mb-6 rounded"></div>
+                        
+                        <div class="space-y-6 text-lg text-slate-300">
+                            <p>
+                                I'm a highly motivated and detail-oriented **Computer Science & Engineering graduate** from East Delta University. My passion lies in using technology to solve real-world problems, which has led me to build a unique skill set at the intersection of development, artificial intelligence, and quality assurance.
+                            </p>
+                            <p>
+                                My academic and project experience—especially my **Deep Learning thesis**—has given me a strong foundation in data analysis and machine learning. At the same time, my professional work as a developer has taught me the importance of clean code, project management, and a flawless user experience.
+                            </p>
+                            <p>
+                                I'm an adaptable team player, a strong communicator (IELTS B2), and I'm committed to leveraging my technical and organizational expertise to drive efficiency and innovation.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Skills List -->
+                    <div class="bg-slate-800 p-6 rounded-lg shadow-lg border border-slate-700">
+                        <h3 class="text-2xl font-semibold text-white mb-6">Core Competencies</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-cyan-400 mr-3"></i>
+                                <span>Python & Deep Learning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-cyan-400 mr-3"></i>
+                                <span>JavaScript, HTML & CSS</span>
+                            </li>
+                             <li class="flex items-center">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-cyan-400 mr-3"></i>
+                                <span>Tailwind & Bootstrap</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-cyan-400 mr-3"></i>
+                                <span>SQL & Database Management</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-cyan-400 mr-3"></i>
+                                <span>QA & Manual Testing</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-cyan-400 mr-3"></i>
+                                <span>Git & Version Control</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-cyan-400 mr-3"></i>
+                                <span>Problem Solving & Analysis</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 bg-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">
+                        What I Do
+                    </h2>
+                    <p class="text-lg text-slate-300 mt-4 max-w-2xl mx-auto">My work combines three key areas to deliver complete, high-quality solutions.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Service 1: AI Engineer -->
+                    <div class="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-700 text-center transition-transform hover:-translate-y-2 duration-300">
+                        <i data-lucide="brain-circuit" class="w-16 h-16 text-cyan-400 mb-6 mx-auto"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-4">AI Engineering</h3>
+                        <p class="text-slate-300">
+                            I design and build AI-powered applications using Python and Deep Learning to solve real-world problems, from analyzing text to making complex predictions.
+                        </p>
+                    </div>
+                    
+                    <!-- Service 2: Web Development -->
+                    <div class="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-700 text-center transition-transform hover:-translate-y-2 duration-300">
+                        <i data-lucide="layout-template" class="w-16 h-16 text-cyan-400 mb-6 mx-auto"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-4">Web Development</h3>
+                        <p class="text-slate-300">
+                            I create, build, and maintain responsive, full-stack websites and web applications using modern tools like Python, JavaScript, HTML, and CSS.
+                        </p>
+                    </div>
+
+                    <!-- Service 3: QA Testing -->
+                    <div class="bg-slate-900 p-8 rounded-lg shadow-lg border border-slate-700 text-center transition-transform hover:-translate-y-2 duration-300">
+                        <i data-lucide="clipboard-check" class="w-16 h-16 text-cyan-400 mb-6 mx-auto"></i>
+                        <h3 class="text-2xl font-semibold text-white mb-4">QA Testing</h3>
+                        <p class="text-slate-300">
+                            I ensure software quality by meticulously finding, documenting, and tracking defects, errors, and inconsistencies before a product is released to users.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 bg-slate-900">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">
+                        Featured Projects
+                    </h2>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-4 rounded"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Project 1: AI Thesis (Star Project) -->
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+                        <div class="p-8">
+                             <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">AI Engineering / Deep Learning</span>
+                            <h3 class="text-2xl font-semibold text-white my-3">Deep Learning Model for Text Analysis (Thesis)</h3>
+                            <p class="text-slate-300 mb-6">
+                                Researched and developed a Deep Learning model to detect suicidal ideation on social media platforms. This project showcases my ability to handle complex data, train advanced models, and apply AI to a critical real-world problem.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Deep Learning</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">NLP</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Research</span>
+                            </div>
+                            <a href="https://github.com/ahad77" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group">
+                                View on GitHub <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2: Student Management System -->
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+                        <div class="p-8">
+                             <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Full-Stack Web Development</span>
+                            <h3 class="text-2xl font-semibold text-white my-3">Student Management System</h3>
+                            <p class="text-slate-300 mb-6">
+                                A comprehensive web app for managing school data. It features separate portals for Admins, Faculty, and Students to handle account information, academic reports, and financial statements, all connected to a central SQL database.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">SQL</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">HTML/CSS</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Full-Stack</span>
+                            </div>
+                            <a href="https://github.com/ahad77" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group">
+                                View on GitHub <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3: Price Comparison Website -->
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+                        <div class="p-8">
+                             <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Web Development / Data</span>
+                            <h3 class="text-2xl font-semibold text-white my-3">Price Comparison Website</h3>
+                            <p class="text-slate-300 mb-6">
+                                A functional website that allows customers to compare product prices across three different supermarkets. This project involved web scraping, data management, and a real-time crowd monitoring feature.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Web Scraping</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Real-Time</span>
+                            </div>
+                            <a href="https://github.com/ahad77" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group">
+                                View on GitHub <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4: Restaurant System -->
+                    <div class="bg-slate-800 rounded-lg overflow-hidden shadow-lg border border-slate-700">
+                        <div class="p-8">
+                             <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Web Development</span>
+                            <h3 class="text-2xl font-semibold text-white my-3">Restaurant Reservation System</h3>
+                            <p class="text-slate-300 mb-6">
+                                A web application for a restaurant that allows users to reserve a table. Its key feature is a real-time crowd monitoring graph, helping users choose the best time to visit.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">JavaScript</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Database</span>
+                                <span class="bg-slate-700 text-slate-200 px-3 py-1 rounded-full text-sm">Web App</span>
+                            </div>
+                            <a href="https://github.com/ahad77" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group">
+                                View on GitHub <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Experience & Education Section -->
+        <section id="experience" class="py-24 bg-slate-800">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">
+                        Experience & Education
+                    </h2>
+                    <div class="w-24 h-1 bg-cyan-400 mx-auto mt-4 rounded"></div>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative max-w-3xl mx-auto">
+                    <!-- Vertical Line (Hidden, using item borders) -->
+
+                    <!-- Timeline Item 1: Aetheriium -->
+                    <div class="timeline-item mb-12 pl-8 relative">
+                        <div class="absolute left-0 top-1 w-4 h-4 bg-cyan-400 rounded-full border-4 border-slate-800"></div>
+                        <span class="text-sm text-slate-400 font-medium">Jan 2025 - Present</span>
+                        <h3 class="text-2xl font-semibold text-white mt-1 mb-2">Founder & Front-End Developer</h3>
+                        <p class="text-lg text-slate-300 mb-3">Aetheriium</p>
+                        <ul class="list-disc list-outside ml-5 text-slate-300 space-y-1">
+                            <li>Leading the development of responsive and dynamic websites.</li>
+                            <li>Managing project timelines, budgets, and client communications.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 2: GAO Tek Inc. -->
+                    <div class="timeline-item mb-12 pl-8 relative">
+                        <div class="absolute left-0 top-1 w-4 h-4 bg-cyan-400 rounded-full border-4 border-slate-800"></div>
+                        <span class="text-sm text-slate-400 font-medium">Sep 2023 - Dec 2023</span>
+                        <h3 class="text-2xl font-semibold text-white mt-1 mb-2">Intern Developer</h3>
+                        <p class="text-lg text-slate-300 mb-3">GAO Tek Inc.</p>
+                        <ul class="list-disc list-outside ml-5 text-slate-300 space-y-1">
+                            <li>Assisted in developing and maintaining WordPress websites.</li>
+                            <li>Used Git and project management tools to coordinate with the dev team.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Timeline Item 3: Education -->
+                    <div class="timeline-item mb-12 pl-8 relative">
+                        <div class="absolute left-0 top-1 w-4 h-4 bg-cyan-400 rounded-full border-4 border-slate-800"></div>
+                        <span class="text-sm text-slate-400 font-medium">Graduated 2024</span>
+                        <h3 class="text-2xl font-semibold text-white mt-1 mb-2">BS in Computer Science & Engineering</h3>
+                        <p class="text-lg text-slate-300 mb-3">East Delta University</p>
+                        <ul class="list-disc list-outside ml-5 text-slate-300 space-y-1">
+                            <li>**Key Accomplishment:** Achieved Dean's List Award for academic excellence.</li>
+                            <li>**Thesis:** Developed a Deep Learning model for text analysis.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-slate-900">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <span class="text-lg font-medium text-cyan-400">What's Next?</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mt-4 mb-6">
+                    Get In Touch
+                </h2>
+                <p class="text-lg text-slate-300 max-w-xl mx-auto mb-10">
+                    I'm currently seeking new opportunities as a Web Developer, AI Engineer, or QA Tester. Whether you have a freelance project or a full-time role, I'd love to hear from you.
+                </p>
+                <a href="mailto:0.ahadislamm@gmail.com" class="inline-block px-10 py-4 rounded-md text-lg font-medium text-white bg-cyan-500 hover:bg-cyan-600 transition-colors shadow-lg">
+                    Say Hello
+                </a>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+             <div class="flex justify-center space-x-8 mb-6">
+                <a href="https://www.linkedin.com/in/ahad-ul-islam-sakib-548704188/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" title="LinkedIn">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://github.com/ahad77" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" title="GitHub">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <a href="mailto:0.ahadislamm@gmail.com" class="text-slate-400 hover:text-cyan-400 transition-colors" title="Email">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                </a>
+            </div>
+            <p class="text-slate-400">&copy; 2025 Ahadul Islam Sakib. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu & Icons & Typing Effect -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+        
+        // --- Mobile Menu Toggle ---
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuButton.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons(); // Re-render icons
+        });
+        
+        // Close menu when a link is clicked
+        const navLinks = mobileMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuButton.querySelector('i').setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // --- Typing Text Effect ---
+        const typingText = document.getElementById('typing-text');
+        const roles = [
+            'build web applications.', 
+            'deploy AI-powered systems.', 
+            'ensure software quality.'
+        ];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+            
+            if (isDeleting) {
+                // Deleting
+                typingText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+                
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                    setTimeout(typeEffect, 500); // Pause before typing new role
+                } else {
+                    setTimeout(typeEffect, 50); // Deleting speed
+                }
+            } else {
+                // Typing
+                typingText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+                
+                if (charIndex === currentRole.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000); // Pause after typing role
+                } else {
+                    setTimeout(typeEffect, 100); // Typing speed
+                }
+            }
+        }
+        
+        // Start typing effect on load
+        document.addEventListener('DOMContentLoaded', () => {
+             if(typingText) {
+                setTimeout(typeEffect, 1000);
+             }
+        });
+    </script>
+
+</body>
+</html>
