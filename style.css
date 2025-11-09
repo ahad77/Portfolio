@@ -1,4 +1,4 @@
-/* Custom scrollbar */
+/* --- Custom Scrollbar --- */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -13,7 +13,7 @@
     background: #06b6d4;
 }
 
-/* Typing cursor effect (for index.html) */
+/* --- Typing Cursor Effect (from index.html) --- */
 .typing-cursor {
     display: inline-block;
     width: 3px;
@@ -27,7 +27,7 @@
     50% { opacity: 0; }
 }
 
-/* Custom timeline line (for index.html) */
+/* --- Custom Timeline Line (from index.html) --- */
 .timeline-item::before {
     content: '';
     position: absolute;
@@ -41,19 +41,69 @@
     display: none;
 }
 
-/* Style for the "Copied!" popup (for contact.html) */
+/* --- "Copied!" Popup (from contact.html) --- */
 .copied-popup {
     position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #22d3ee; /* cyan-400 */
     color: #0f172a; /* slate-900 */
     padding: 4px 10px;
     border-radius: 6px;
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 600; /* font-semibold */
-    bottom: 125%; /* Position above the element */
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 0.875rem;
+    font-weight: 600;
     opacity: 0;
-    transition: opacity 0.3s ease;
-    white-space: nowrap;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none; /* So it doesn't block clicks */
+}
+
+/* --- Hero Background Animation (from index.html) --- */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px); /* Creates the soft, glowing effect */
+    will-change: transform; /* Performance optimization */
+}
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background-color: rgba(6, 182, 212, 0.2); /* cyan-500 at 20% opacity */
+    top: 10%;
+    left: 10%;
+    animation: moveOrb1 20s infinite alternate linear;
+}
+
+.orb-2 {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(8, 145, 178, 0.2); /* cyan-600 at 20% opacity */
+    top: 50%;
+    left: 60%;
+    animation: moveOrb2 25s infinite alternate linear;
+}
+
+.orb-3 {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(22, 78, 99, 0.3); /* cyan-900 at 30% opacity */
+    top: 80%;
+    left: 30%;
+    animation: moveOrb3 15s infinite alternate linear;
+}
+
+@keyframes moveOrb1 {
+    from { transform: translate(0, 0); }
+    to { transform: translate(100px, 50px); }
+}
+
+@keyframes moveOrb2 {
+    from { transform: translate(0, 0); }
+    to { transform: translate(-50px, -100px); }
+}
+
+@keyframes moveOrb3 {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, -50px); }
 }
