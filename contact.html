@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ahad Ul Islam Sakib</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Font (Inter) & Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                            600: '#0891b2',
+                            900: '#164e63',
+                        },
+                        slate: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Linked External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-slate-900 text-slate-200 font-sans">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <a href="index.html" class="text-2xl font-bold text-white hover:text-cyan-400 transition-colors">
+                    Ahad Ul Islam Sakib
+                </a>
+                
+                <!-- Desktop Navigation (Links updated) -->
+                <div class="hidden md:flex md:space-x-6">
+                    <a href="index.html#about" class="px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">About</a>
+                    <a href="index.html#services" class="px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">Services</a>
+                    <a href="index.html#projects" class="px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">Projects</a>
+                    <a href="contact.html" class="px-4 py-2 rounded-md text-sm font-medium text-white bg-cyan-500 hover:bg-cyan-600 transition-colors">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-200 hover:text-cyan-400 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu (Links updated) -->
+        <div id="mobile-menu" class="hidden md:hidden px-2 pt-2 pb-3 space-y-1">
+            <a href="index.html#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">About</a>
+            <a href="index.html#services" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">Services</a>
+            <a href="index.html#projects" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition-colors">Projects</a>
+            <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-cyan-500 hover:bg-cyan-600 transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-slate-950 min-h-screen">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Profile Picture -->
+                <div class="relative flex justify-center z-10">
+                    <img 
+                        src="Ahad.jpeg" 
+                        alt="Ahad Ul Islam Sakib"
+                        class="w-32 h-32 rounded-full border-4 border-cyan-400 object-cover shadow-lg -mb-16"
+                    >
+                </div>
+
+                <!-- Contact Card -->
+                <div class="relative bg-slate-900 border border-slate-800 rounded-lg shadow-2xl pt-24 pb-16 px-6 md:px-12">
+                    
+                    <div class="text-center mb-12">
+                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Get In Touch</h1>
+                        <p class="text-lg text-slate-300 max-w-xl mx-auto">
+                            I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out to me through any of the channels below.
+                        </p>
+                    </div>
+
+                    <!-- Contact Details Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                        
+                        <!-- Email -->
+                        <div class="flex items-start space-x-5">
+                            <div class="flex-shrink-0">
+                                <i data-lucide="mail" class="w-8 h-8 text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Email</h3>
+                                <p class="text-slate-400 mb-2">My primary inbox. I'll get back to you as soon as possible.</p>
+                                <button onclick="copyToClipboard('0.ahadislamm@gmail.com', this)" class="relative inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group">
+                                    0.ahadislamm@gmail.com
+                                    <i data-lucide="copy" class="w-4 h-4 ml-2 group-hover:text-cyan-300 transition-all"></i>
+                                    <span class="copied-popup">Copied!</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-start space-x-5">
+                            <div class="flex-shrink-0">
+                                <i data-lucide="phone" class="w-8 h-8 text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">Phone</h3>
+                                <p class="text-slate-400 mb-2">For a more direct conversation, feel free to call or text.</p>
+                                <button onclick="copyToClipboard('+880123456789', this)" class="relative inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors group">
+                                    +880 123 456 789 <!-- Replace with your actual number -->
+                                    <i data-lucide="copy" class="w-4 h-4 ml-2 group-hover:text-cyan-300 transition-all"></i>
+                                    <span class="copied-popup">Copied!</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
+                        <div class="flex items-start space-x-5">
+                            <div class="flex-shrink-0">
+                                <i data-lucide="linkedin" class="w-8 h-8 text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">LinkedIn</h3>
+                                <p class="text-slate-400 mb-2">Connect with me on my professional network.</p>
+                                <a href="https://www.linkedin.com/in/ahad-ul-islam-sakib-548704188/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-2 text-cyan-400 hover:text-cyan-300 font-medium transition-colors group">
+                                    View on LinkedIn <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- GitHub -->
+                        <div class="flex items-start space-x-5">
+                            <div class="flex-shrink-0">
+                                <i data-lucide="github" class="w-8 h-8 text-cyan-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-white mb-1">GitHub</h3>
+                                <p class="text-slate-400 mb-2">See my code, projects, and contributions.</p>
+                                <a href="https://github.com/ahad77" target="_blank" rel="noopener noreferrer" class="inline-flex items-center mt-2 text-cyan-400 hover:text-cyan-300 font-medium transition-colors group">
+                                    View on GitHub <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Facebook section removed -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+             <div class="flex justify-center space-x-8 mb-6">
+                <a href="https://www.linkedin.com/in/ahad-ul-islam-sakib-548704188/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" title="LinkedIn">
+                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                </a>
+                <a href="https://github.com/ahad77" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors" title="GitHub">
+                    <i data-lucide="github" class="w-6 h-6"></i>
+                </a>
+                <!-- Footer email to click-to-copy -->
+                <button onclick="copyToClipboard('0.ahadislamm@gmail.com', this)" class="text-slate-400 hover:text-cyan-400 transition-colors relative" title="Copy Email">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                    <span class="copied-popup" style="bottom: 150%;">Copied!</span>
+                </button>
+             </div>
+            <p class="text-slate-400">&copy; 2025 Ahadul Islam Sakib. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Linked External JavaScript -->
+    <script src="script.js" defer></script>
+
+</body>
+</html>

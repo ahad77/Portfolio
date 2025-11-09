@@ -1,0 +1,59 @@
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
+}
+
+/* Typing cursor effect (for index.html) */
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: #22d3ee;
+    animation: blink 1s infinite;
+    margin-left: 4px;
+    transform: translateY(4px);
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Custom timeline line (for index.html) */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 5.5px;
+    top: 28px;
+    bottom: 0;
+    width: 3px;
+    background-color: #1e293b; /* slate-800 */
+}
+.timeline-item:last-child::before {
+    display: none;
+}
+
+/* Style for the "Copied!" popup (for contact.html) */
+.copied-popup {
+    position: absolute;
+    background-color: #22d3ee; /* cyan-400 */
+    color: #0f172a; /* slate-900 */
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 600; /* font-semibold */
+    bottom: 125%; /* Position above the element */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
